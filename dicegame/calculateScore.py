@@ -12,9 +12,22 @@ WINNING_SCORE = 10000
 MODES = [ "simulateTurns", "simulateGames" ]
 
 def rollOneDie():
+    """
+    Simulates the roll of a single 6-sided die
+
+    :return: An integer in the range [1,6] randomly generated from a uniform distribution
+    """
     return random.randint(1,6)
 
 def rollDice(numDice):
+    """
+    Roll Dice
+
+    Simulates multiple rolls of o 6-sided die
+
+    :param numDice:     The number of dice to roll
+    :return:            An array of size numDice each containing an iid random number in the range [1.6]
+    """
     diceRolls = []
     for i in range(0,numDice):
         diceRolls.append(rollOneDie())
@@ -52,7 +65,8 @@ def simulateGames(strategyName, threshold, scoringEngine, numGames):
     :param threshold:           The numerical threshold to use for the strategy, where relevant
     :param scoringEngine:       The scoring engine for the game
     :param numGames:            An integer representing the number of games to simulate
-    :return:
+    :return:                    A results JSON payload containing statistics on the number of turns to win per game and
+                                the final score of each game
     """
     verboseStrategyName = "{}:{}".format(strategyName, threshold) if threshold is not None else strategyName
     logging.info("Starting simulation of games for strategy " + verboseStrategyName)
@@ -93,11 +107,12 @@ def simulateTurnsWithStrategyAndCalculateStats(strategyName, threshold, scoringE
 
     Simulates a desired number of turns with the specified strategy and threshold (where relevant).
 
-    :param strategyName:
-    :param threshold:
-    :param scoringEngine:
-    :param maxNumTurns:
-    :return:
+    :param strategyName:        The name of the strategy for the player involved
+    :param threshold:           The numerical threshold to use for the strategy, where relevant
+    :param scoringEngine:       The scoring engine for the game
+    :param maxNumTurns:         The max number of turns to run the simulation for
+    :return:                    A results JSON payload containing statistics on the number of rolls per turn and the final
+                                score per game
     """
     strategy = StrategyFactory.getStrategy(strategyName, threshold)
     strategyName = "{}:{}".format(strategyName, threshold) if threshold is not None else strategyName
@@ -148,45 +163,53 @@ def simulateTurnsWithStrategyAndCalculateStats(strategyName, threshold, scoringE
     }
     return results
 
-
-def generatePlot(data, bins, dataName, title):
+def generatePlot(data, bins, dataDescription, title):
     """
     Generate Plot
 
-    :param data:
-    :param bins:
-    :param dataName:
-    :param title:
-    :return:
+    Generates a matplotlib.pyplot histogram of the data with the specified number of bins, description, and title
+
+    :param data:                An array of data
+    :param bins:                The number of bins to use for the histogram
+    :param dataDescription:     A String describing the data, to be used as the X-axis label
+    :param title:               A String representing the title of the histogram
     """
-    logging.debug("Generating plots for data " + dataName)
+    logging.debug("Generating plots for data " + dataDescription)
     histogram, bin_edges = np.histogram(data, bins=bins)
     fig, ax = plt.subplots()
     ax.hist(data, bin_edges, cumulative=False)
-    ax.set_xlabel(dataName)
+    ax.set_xlabel(dataDescription)
     ax.set_ylabel('Frequency')
     fig.suptitle(title, fontsize=15)
     plt.show()
 
-def generateStatistics(data, dataName):
+def generateStatistics(data, dataDescription):
     """
     Generate Statistics
 
-    :param data:
-    :param dataName:
-    :return:
+    Generates summary statistics about the empirical distribution of the data
+
+    :param data:                An array of data
+    :param dataDescription:     A String describing the data
+    :return:                    A scipy.statistics object containing summary statistics
     """
     statistics = stats.describe(data, ddof=1, bias=False)
-    logging.info("Found statsistics {} for {}".format(statistics, dataName))
+    logging.info("Found statsistics {} for {}".format(statistics, dataDescription))
     return statistics
 
 def rollDiceWithStrategy(strategy, scoringEngine, cumulativeGameScore, otherPlayerScores):
     """
     Roll Dice with Strategy
 
-    :param strategy:
-    :param scoringEngine:
-    :return:
+    Simulates a turn using the specified strategy, scoring engine, and other miscellaneous exogneous variables (cumulativeGameScore,
+    otherPlayerScores), which may affect strategy decision-making
+
+    :param strategy:                A String representing the name of a strategy to use
+    :param scoringEngine:           A ScoringEngine object that will score the dice rolls
+    :param cumulativeGameScore:     An integer representing the cumulative score for this player, prior to starting this turn
+    :param otherPlayerScores:       A JSON payload containing a map of players to ther cumulatiive scores, prior to starting
+                                    this turn.
+    :return:                        The score for the turn and the number of rolls for the turn
     """
     cumulativeScore = 0
     lockedInScore = 0
