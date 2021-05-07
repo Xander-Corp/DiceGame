@@ -46,10 +46,12 @@ def simulateGames(strategyName, threshold, scoringEngine, numGames):
     """
     Simulate Games
 
-    :param strategyName:
-    :param threshold:
-    :param scoringEngine:
-    :param numGames:
+    Simulates the specified number of games for a single player with the specified strategy and threshold (where relevant)
+
+    :param strategyName:        The name of the strategy for the player involved
+    :param threshold:           The numerical threshold to use for the strategy, where relevant
+    :param scoringEngine:       The scoring engine for the game
+    :param numGames:            An integer representing the number of games to simulate
     :return:
     """
     verboseStrategyName = "{}:{}".format(strategyName, threshold) if threshold is not None else strategyName
@@ -69,20 +71,27 @@ def simulateGames(strategyName, threshold, scoringEngine, numGames):
     description = "Number of Turns to Win per Game"
     title = "Number of Turns to Win per Game for Strategy {}".format(verboseStrategyName)
     generatePlot(numTurnsToWinArr, 1, description, title)
-    generateStatistics(numTurnsToWinArr, description)
+    numTurnsStats = generateStatistics(numTurnsToWinArr, description)
 
     # Stats and plots for final scores
     description = "Final Score for Game"
     title = "Final Score per Game for Strategy {}".format(verboseStrategyName)
     generatePlot(finalScores, 50, description, title)
-    generateStatistics(finalScores, description)
+    finalScoresStats = generateStatistics(finalScores, description)
+
+    # Results
+    results = {
+        "numTurnsStats" : numTurnsStats,
+        "finalScoresStats" : finalScoresStats
+    }
+    return results
+
 
 def simulateTurnsWithStrategyAndCalculateStats(strategyName, threshold, scoringEngine, maxNumTurns):
     """
     Simulate Turns with Strategy and Calculate Stats
 
-    Simulates a desired number of turns
-
+    Simulates a desired number of turns with the specified strategy and threshold (where relevant).
 
     :param strategyName:
     :param threshold:
@@ -116,23 +125,40 @@ def simulateTurnsWithStrategyAndCalculateStats(strategyName, threshold, scoringE
         numRollArr.append(numRollsForTurn)
         logging.info("Received score {} from {} rolls for turn/roll {}!".format(scoreForTurn, numRollsForTurn, ctr))
 
+    # Scores per turn stats and plots
     scores = np.array(scores)
-    numRolls = np.array(numRollArr)
-
     scoresDescr = "Score for Turn"
     scoresTitle = "Histogram of Scores per Turn ({})".format(strategyName)
-    generateStatistics(scores, scoresDescr)
     generatePlot(scores, 20, scoresDescr, scoresTitle)
+    scoresPerTurnStats = generateStatistics(scores, scoresDescr)
 
+    # Number of rolls per turn stats and plots
+    numRolls = np.array(numRollArr)
     rollsDescr =  "Number of Rolls for Turn"
     rollsTitle =  "Histogram of Num Rolls per Turn ({})".format(strategyName)
-    generateStatistics(numRolls, rollsDescr)
     generatePlot(numRolls, 10,rollsDescr, rollsTitle)
+    rollsPerTurnStats = generateStatistics(numRolls, rollsDescr)
 
     logging.info("User with strategy {} took {} turns to hit 10K!".format(strategyName, numTurnsToHit10K))
 
+    # Results
+    results = {
+        "scoresPerTurnStats" : scoresPerTurnStats,
+        "rollsPerTurnStats" : rollsPerTurnStats
+    }
+    return results
+
 
 def generatePlot(data, bins, dataName, title):
+    """
+    Generate Plot
+
+    :param data:
+    :param bins:
+    :param dataName:
+    :param title:
+    :return:
+    """
     logging.debug("Generating plots for data " + dataName)
     histogram, bin_edges = np.histogram(data, bins=bins)
     fig, ax = plt.subplots()
@@ -143,9 +169,16 @@ def generatePlot(data, bins, dataName, title):
     plt.show()
 
 def generateStatistics(data, dataName):
+    """
+    Generate Statistics
+
+    :param data:
+    :param dataName:
+    :return:
+    """
     statistics = stats.describe(data, ddof=1, bias=False)
     logging.info("Found statsistics {} for {}".format(statistics, dataName))
-
+    return statistics
 
 def rollDiceWithStrategy(strategy, scoringEngine, cumulativeGameScore, otherPlayerScores):
     """
@@ -231,9 +264,9 @@ def main(args):
     if args.mode is not None:
         mode = args.mode.strip()
     if mode == "simulateTurns":
-        simulateTurnsWithStrategyAndCalculateStats(args.strategy, threshold, traditionalScoringEngine, numSimulations)
+        return simulateTurnsWithStrategyAndCalculateStats(args.strategy, threshold, traditionalScoringEngine, numSimulations)
     elif mode == "simulateGames":
-        simulateGames(args.strategy, threshold, traditionalScoringEngine, numSimulations)
+        return simulateGames(args.strategy, threshold, traditionalScoringEngine, numSimulations)
 
 #-------------------------------
 if __name__ == "__main__":

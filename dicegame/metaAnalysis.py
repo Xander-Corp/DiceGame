@@ -41,6 +41,7 @@ def main(args):
     _configureLogger(args.logLevel.upper())
 
     # strategies = ["CrawdadStrategy", "TylerStrategy", "ThresholdStrategy" ]
+    modes = ["simulateGames", "simulateTurns"]
     thresholds = [ 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 ]
     results = {
     }
@@ -50,13 +51,27 @@ def main(args):
         args.threshold = threshold
 
         if strategy in ["CrawdadStrategy", "TylerStrategy"]:
-            logging.info("Running simulations on strategy {}".format(strategy))
-            results[strategy] = calculateScore.main(args)
+            for mode in modes:
+                args.mode = mode
+                logging.info("Running simulations on strategy {} and mode {}".format(strategy, mode))
+
+                strategyName = strategy
+                if strategyName not in results:
+                    results[strategyName] = { }
+                if mode not in results[strategyName]:
+                    results[strategyName][mode] = { }
+                results[strategyName][mode] = calculateScore.main(args)
         else:
             for threshold in thresholds:
                 logging.info("Running simulations on strategy {} and threshold {}".format(strategy, threshold))
                 args.threshold = threshold
-                results["{}:{}".format(strategy, threshold)] = calculateScore.main(args)
+
+                strategyName = "{}:{}".format(strategy, threshold)
+                if strategyName not in results:
+                    results[strategyName] = {}
+                if mode not in results[strategyName]:
+                    results[strategyName][mode] = {}
+                results[strategyName][mode] = calculateScore.main(args)
 
     # Print results
     logging.info("Printing results...")
