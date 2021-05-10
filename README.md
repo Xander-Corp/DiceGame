@@ -1165,6 +1165,5 @@ The raw output for this is below:
             }
         }
     }
-}
-  ```
+  }
 </details>
