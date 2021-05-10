@@ -195,6 +195,18 @@ def generateStatistics(data, dataDescription):
     """
     statistics = stats.describe(data, ddof=1, bias=False)
     logging.info("Found statsistics {} for {}".format(statistics, dataDescription))
+    statistics = statistics._asdict()
+    for key in statistics.keys():
+        try:
+            if key == "minmax":
+                statistics["minmax"] = [
+                    statistics["minmax"][0].item(),
+                    statistics["minmax"][1].item()
+                ]
+            else:
+                statistics[key] = statistics[key].item()
+        except Exception as e:
+            logging.error("Encountered exception {} when reformatting statistics".format(e))
     return statistics
 
 def rollDiceWithStrategy(strategy, scoringEngine, cumulativeGameScore, otherPlayerScores):
