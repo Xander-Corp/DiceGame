@@ -63,7 +63,7 @@ The raw output for this is below:
 
 <details>
   <summary>Click to expand!</summary>
-  ```
+  ```yaml
   {
     "CrawdadStrategy": {
         "simulateGames": {
