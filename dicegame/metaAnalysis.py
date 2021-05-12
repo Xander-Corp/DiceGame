@@ -39,9 +39,9 @@ def main(args):
 
     # strategies = ["CrawdadStrategy", "TylerStrategy", "ThresholdStrategy" ]
     modes = ["simulateGames", "simulateTurns"]
-    # thresholds = [ 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 ]
-    thresholds = [ 210, 220, 230, 240, 250, 260, 270, 280, 290, 300,
-                   310, 320, 330, 340, 350, 360, 370, 380, 390, 400 ]
+    thresholds = [ 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 ]
+    # thresholds = [ 210, 220, 230, 240, 250, 260, 270, 280, 290, 300,
+    #                310, 320, 330, 340, 350, 360, 370, 380, 390, 400 ]
     results = {
     }
     for strategy in StrategyFactory.getStrategyNames():
