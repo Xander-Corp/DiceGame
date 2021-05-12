@@ -681,11 +681,6 @@ The raw output for this is below:
   ```
 </details>
 
-[link](readme/images/final_score_per_game_for_strategy_crawdadstrategy.png)
-
-
-
-
 
 Clearly, the threshold strategy captures a range of performance that tends to optimize around 300. Investigating this further, we look at scores for threshold strategy in the threshold range of [200,400]:
 
