@@ -52,6 +52,7 @@ def main(args):
         args.loglevel = None
         args.strategy = strategy
         args.threshold = None
+        args.saveImages = True
         for mode in modes:
             args.mode = mode
 
@@ -81,14 +82,22 @@ def main(args):
     logging.info(json.dumps(results, indent=4))
 
     for key in results.keys():
-        numTurnsToWin = "{}|{}".format(results[key]["simulateGames"]["numTurnsStats"]["mean"],
+        numTurnsToWin = "[{}]({})|{}".format(results[key]["simulateGames"]["numTurnsStats"]["mean"],
+                                             results[key]["simulateGames"]["numTurnsStatsHistogram"],
                                        math.sqrt(results[key]["simulateGames"]["numTurnsStats"]["variance"]))
-        finalScores = "{}|{}".format(results[key]["simulateGames"]["finalScoresStats"]["mean"],
+
+        finalScores = "[{}]({})|{}".format(results[key]["simulateGames"]["finalScoresStats"]["mean"],
+                                           results[key]["simulateGames"]["finalScoresStatsHistogram"],
                                        math.sqrt(results[key]["simulateGames"]["finalScoresStats"]["variance"]))
-        scoresPerTurn = "{}|{}".format(results[key]["simulateTurns"]["scoresPerTurnStats"]["mean"],
+
+        scoresPerTurn = "[{}]({})|{}".format(results[key]["simulateTurns"]["scoresPerTurnStats"]["mean"],
+                                             results[key]["simulateTurns"]["scoresPerTurnStatsHistogram"],
                                        math.sqrt(results[key]["simulateTurns"]["scoresPerTurnStats"]["variance"]))
-        rollsPerTurn = "{}|{}".format(results[key]["simulateTurns"]["rollsPerTurnStats"]["mean"],
+
+        rollsPerTurn = "[{}]({})|{}".format(results[key]["simulateTurns"]["rollsPerTurnStats"]["mean"],
+                                      results[key]["simulateTurns"]["rollsPerTurnStatsHistogram"],
                                        math.sqrt(results[key]["simulateTurns"]["rollsPerTurnStats"]["variance"]))
+
         logging.info("|{}|{}|{}|{}|{}|".format(key, numTurnsToWin, finalScores, scoresPerTurn, rollsPerTurn))
 
 #-------------------------------

@@ -1,5 +1,6 @@
 import argparse
 import logging
+import os
 import random
 from strategies.Strategy import StrategyFactory
 from dicegame.scoring.scoringCalculator import TraditionalScoringEngine
@@ -8,6 +9,7 @@ from scipy import stats
 import matplotlib.pyplot as plt
 
 # Constants
+IMAGES_PATH = "readme/images"
 WINNING_SCORE = 10000
 MODES = [ "simulateTurns", "simulateGames" ]
 
@@ -55,7 +57,7 @@ def simulateSinglePlayerGame(strategyName, threshold, scoringEngine):
         cumulativeScore += scoreForTurn
     return cumulativeScore, ctr
 
-def simulateGames(strategyName, threshold, scoringEngine, numGames):
+def simulateGames(strategyName, threshold, scoringEngine, numGames, saveImages):
     """
     Simulate Games
 
@@ -65,6 +67,7 @@ def simulateGames(strategyName, threshold, scoringEngine, numGames):
     :param threshold:           The numerical threshold to use for the strategy, where relevant
     :param scoringEngine:       The scoring engine for the game
     :param numGames:            An integer representing the number of games to simulate
+    :param saveImages:          True to save images, False otherwise
     :return:                    A results JSON payload containing statistics on the number of turns to win per game and
                                 the final score of each game
     """
@@ -84,24 +87,26 @@ def simulateGames(strategyName, threshold, scoringEngine, numGames):
     # Stats and plots for number of turns per game
     description = "Number of Turns to Win per Game"
     title = "Number of Turns to Win per Game for Strategy {}".format(verboseStrategyName)
-    generatePlot(numTurnsToWinArr, 1, description, title)
+    numTurnsStatsHistogram = generatePlot(numTurnsToWinArr, 1, description, title, saveImages)
     numTurnsStats = generateStatistics(numTurnsToWinArr, description)
 
     # Stats and plots for final scores
     description = "Final Score for Game"
     title = "Final Score per Game for Strategy {}".format(verboseStrategyName)
-    generatePlot(finalScores, 50, description, title)
+    finalScoresStatsHistogram = generatePlot(finalScores, 50, description, title, saveImages)
     finalScoresStats = generateStatistics(finalScores, description)
 
     # Results
     results = {
         "numTurnsStats" : numTurnsStats,
-        "finalScoresStats" : finalScoresStats
+        "numTurnsStatsHistogram" : numTurnsStatsHistogram,
+        "finalScoresStats" : finalScoresStats,
+        "finalScoresStatsHistogram" : finalScoresStatsHistogram
     }
     return results
 
 
-def simulateTurnsWithStrategyAndCalculateStats(strategyName, threshold, scoringEngine, maxNumTurns):
+def simulateTurnsWithStrategyAndCalculateStats(strategyName, threshold, scoringEngine, maxNumTurns, saveImages):
     """
     Simulate Turns with Strategy and Calculate Stats
 
@@ -111,6 +116,7 @@ def simulateTurnsWithStrategyAndCalculateStats(strategyName, threshold, scoringE
     :param threshold:           The numerical threshold to use for the strategy, where relevant
     :param scoringEngine:       The scoring engine for the game
     :param maxNumTurns:         The max number of turns to run the simulation for
+    :param saveImages:          True to save images, False otherwise
     :return:                    A results JSON payload containing statistics on the number of rolls per turn and the final
                                 score per game
     """
@@ -144,14 +150,14 @@ def simulateTurnsWithStrategyAndCalculateStats(strategyName, threshold, scoringE
     scores = np.array(scores)
     scoresDescr = "Score for Turn"
     scoresTitle = "Histogram of Scores per Turn ({})".format(strategyName)
-    generatePlot(scores, 20, scoresDescr, scoresTitle)
+    scorePerTurnStatsHistogram = generatePlot(scores, 20, scoresDescr, scoresTitle, saveImages)
     scoresPerTurnStats = generateStatistics(scores, scoresDescr)
 
     # Number of rolls per turn stats and plots
     numRolls = np.array(numRollArr)
     rollsDescr =  "Number of Rolls for Turn"
     rollsTitle =  "Histogram of Num Rolls per Turn ({})".format(strategyName)
-    generatePlot(numRolls, 10,rollsDescr, rollsTitle)
+    rollsPerTurnStatsHistogram = generatePlot(numRolls, 10,rollsDescr, rollsTitle, saveImages)
     rollsPerTurnStats = generateStatistics(numRolls, rollsDescr)
 
     logging.info("User with strategy {} took {} turns to hit 10K!".format(strategyName, numTurnsToHit10K))
@@ -159,11 +165,13 @@ def simulateTurnsWithStrategyAndCalculateStats(strategyName, threshold, scoringE
     # Results
     results = {
         "scoresPerTurnStats" : scoresPerTurnStats,
-        "rollsPerTurnStats" : rollsPerTurnStats
+        "scoresPerTurnStatsHistogram" : scorePerTurnStatsHistogram,
+        "rollsPerTurnStats" : rollsPerTurnStats,
+        "rollsPerTurnStatsHistogram" : rollsPerTurnStatsHistogram
     }
     return results
 
-def generatePlot(data, bins, dataDescription, title):
+def generatePlot(data, bins, dataDescription, title, save):
     """
     Generate Plot
 
@@ -173,6 +181,7 @@ def generatePlot(data, bins, dataDescription, title):
     :param bins:                The number of bins to use for the histogram
     :param dataDescription:     A String describing the data, to be used as the X-axis label
     :param title:               A String representing the title of the histogram
+    :param save:                True to save images, False otherwise
     """
     logging.debug("Generating plots for data " + dataDescription)
     histogram, bin_edges = np.histogram(data, bins=bins)
@@ -181,7 +190,37 @@ def generatePlot(data, bins, dataDescription, title):
     ax.set_xlabel(dataDescription)
     ax.set_ylabel('Frequency')
     fig.suptitle(title, fontsize=15)
+    fileName = None
+    if save:
+        fileName = title.replace(" ", "_").replace(":", "-").lower()
+        fullName = '../{}/{}'.format(IMAGES_PATH, fileName)
+        if os.path.exists(fullName):
+            renameFileWithRetry(fullName, "bak")
+        plt.savefig(fullName)
     plt.show()
+    relativePathFromMainDir = "{}/{}.png".format(IMAGES_PATH, fileName)
+    return relativePathFromMainDir
+
+def renameFileWithRetry(fullFileName, suffix):
+    """
+    Rename File With Retry
+
+    Renames a file incrementally to avoid overwriting other backups
+
+    :param fullFileName:        The full path to the file to rename
+    :param suffix:              The suffix that will be used to make a backup
+    :return:
+    """
+    newFileName = "{}.{}".format(fullFileName, suffix)
+    pathExists = os.path.exists(newFileName)
+    ctr = 0
+    while pathExists:
+        ctr += 1
+        newFileName = "{}.{}.{}".format(fullFileName, suffix, ctr)
+        pathExists = os.path.exists(newFileName)
+
+    os.rename(fullFileName, newFileName)
+
 
 def generateStatistics(data, dataDescription):
     """
@@ -276,6 +315,7 @@ def setupArgs():
     parser.add_argument('--threshold',              required=False,  action="store",         dest='threshold',               default=None,                help='Integer representing the threshold to use for the Threshold Strategy or Expected value strategy')
     parser.add_argument('--scoringEngine',          required=False,  action="store",         dest='scoringEngine',           default='Traditional',       help='Name of the scoring engine to use. Currently always uses Traditional Scoring Engine')
     parser.add_argument('--numSimulations',         required=False,  action="store",         dest='numSimulations',          default=1000,                help='Number of simulations (number of rolls if simulating rolls. number of games if simulating games)')
+    parser.add_argument('--saveImages',             required=False,  action="store_true",    dest='saveImages',              default=False,               help='Include to save images.')
     parser.add_argument('--mode',                   required=False,  action="store",         dest='mode',                    default="simulateTurns",     help='What to simulate. valid options are {}'.format(MODES))
     return parser.parse_args()
 
@@ -299,9 +339,9 @@ def main(args):
     if args.mode is not None:
         mode = args.mode.strip()
     if mode == "simulateTurns":
-        return simulateTurnsWithStrategyAndCalculateStats(args.strategy, threshold, traditionalScoringEngine, numSimulations)
+        return simulateTurnsWithStrategyAndCalculateStats(args.strategy, threshold, traditionalScoringEngine, numSimulations, args.saveImages)
     elif mode == "simulateGames":
-        return simulateGames(args.strategy, threshold, traditionalScoringEngine, numSimulations)
+        return simulateGames(args.strategy, threshold, traditionalScoringEngine, numSimulations, args.saveImages)
 
 #-------------------------------
 if __name__ == "__main__":

@@ -32,32 +32,38 @@ The raw output for this is below:
   ```
 </details>
 
+[link](readme/images/final_score_per_game_for_strategy_crawdadstrategy.png)
+
+
+
+
+
 Clearly, the threshold strategy captures a range of performance that tends to optimize around 300. Investigating this further, we look at scores for threshold strategy in the threshold range of [200,400]:
 
 | Strategy | E[Num_Turns_to_Win] | Std[Num_Turns_to_Win] | E[Final_Score] | Std[Final_Score] | E[Score_Per_Turn] | Std[Score_Per_Turn] | E[Rolls_Per_Turn] | Std[Rolls_Per_Turn] |
 | --- | ----------- | --- | ----------- |  --- | ----------- |  --- | ----------- |  --- |
-|CrawdadStrategy|403.412|144.46090546998937|10702.35|646.9741517657819|34.45|231.78529272135006|3.846|2.2718814769801363|
-|TylerStrategy|28.681|5.322928946789782|10345.7|393.9183693123255|378.55|423.8006660029034|1.017|0.1293357171384909|
-|ThresholdStrategy:210|24.0485|4.0566480484926135|10341.33|383.09072939800444|427.75|372.56719948462074|1.6327|0.7169673034465527|
-|ThresholdStrategy:220|24.0835|4.052575734888702|10340.435|367.31628455636167|428.09|366.45720212338415|1.638|0.7180581875837609|
-|ThresholdStrategy:230|24.0599|4.134927055242355|10349.56|404.3620373696405|435.925|374.73015176746105|1.6173|0.7077363909535159|
-|ThresholdStrategy:240|24.0208|4.081351872028474|10352.495|390.86929126664006|431.705|367.58135777057305|1.6215|0.7153243452391992|
-|ThresholdStrategy:250|24.0435|4.10722469308266|10348.36|391.7175700239479|429.205|381.43592818680725|1.6153|0.7079237427877104|
-|ThresholdStrategy:260|24.2867|4.233898404493187|10362.9|402.34721115950686|431.345|386.22488001266066|1.8527|0.8510435579415141|
-|ThresholdStrategy:270|24.3016|4.286825763605602|10355.38|391.69426602875353|430.37|381.537311638085|1.8487|0.861093756942776|
-|ThresholdStrategy:280|24.274|4.292338106049157|10356.71|385.4988156060708|423.915|368.72878768396527|1.8436|0.8508886185301308|
-|ThresholdStrategy:290|24.2547|4.224998576484627|10353.88|388.5042331222601|431.935|385.18208979550167|1.8326|0.8461966939692499|
-|ThresholdStrategy:300|24.2946|4.273153030688507|10353.115|384.330349773181|425.16|385.1704947565469|1.8525|0.8611724053818602|
-|ThresholdStrategy:310|25.3414|4.827315645121392|10374.055|405.93975622445305|407.01|386.5369335265363|2.0432|0.9743863211633704|
-|ThresholdStrategy:320|25.3733|4.804670185929473|10368.675|394.49595318673175|405.21|395.9987845988171|2.0611|0.9961255024351401|
-|ThresholdStrategy:330|25.3179|4.76899506409811|10382.075|411.0515061510794|410.07|389.6168312939301|2.0634|0.9852296725894806|
-|ThresholdStrategy:340|25.5061|4.842324607124152|10373.26|393.51297011123347|407.235|395.6950369049669|2.0578|0.9924503291175718|
-|ThresholdStrategy:350|25.3569|4.840440618015848|10370.435|400.5636102987758|404.295|404.21175352674857|2.068|0.9930128939045787|
-|ThresholdStrategy:360|26.9796|5.5335021283614285|10395.025|403.8190267380124|389.155|424.64593297456554|2.2263|1.115622145386657|
-|ThresholdStrategy:370|27.0364|5.634061528323106|10395.21|396.7320197936549|387.155|417.8172005749758|2.229|1.130525014619698|
-|ThresholdStrategy:380|26.9295|5.588063385041326|10402.05|401.4740535097681|385.015|434.221780465309|2.2359|1.1261340984983894|
-|ThresholdStrategy:390|26.9761|5.511367008885424|10393.165|396.5617970769374|385.125|412.41240618375855|2.237|1.1234577053550223|
-|ThresholdStrategy:400|26.9864|5.5257097631742|10392.03|396.1264579866784|380.98|412.6333314537529|2.2372|1.1203846152855799|
+|CrawdadStrategy|[409.229](readme/images/number_of_turns_to_win_per_game_for_strategy_crawdadstrategy.png)|145.99534650186698|[10718.75](readme/images/final_score_per_game_for_strategy_crawdadstrategy.png)|676.8338359904457|[22.05](readme/images/histogram_of_scores_per_turn_(crawdadstrategy).png)|177.40566583474802|[3.875](readme/images/histogram_of_num_rolls_per_turn_(crawdadstrategy).png)|2.3881118227750724|
+|TylerStrategy|[29.16](readme/images/number_of_turns_to_win_per_game_for_strategy_tylerstrategy.png)|5.474702948322618|[10347.3](readme/images/final_score_per_game_for_strategy_tylerstrategy.png)|416.5407737739683|[348.35](readme/images/histogram_of_scores_per_turn_(tylerstrategy).png)|348.498534758367|[1.01](readme/images/histogram_of_num_rolls_per_turn_(tylerstrategy).png)|0.09954853042566682|
+|ThresholdStrategy:210|[24.0143](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-210.png)|4.039495916909222|[10348.295](readme/images/final_score_per_game_for_strategy_thresholdstrategy-210.png)|390.9752282919134|[433.445](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-210).png)|363.4080193306848|[1.6362](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-210).png)|0.7195146490051563|
+|ThresholdStrategy:220|[24.065](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-220.png)|4.12580625184009|[10355.615](readme/images/final_score_per_game_for_strategy_thresholdstrategy-220.png)|398.1131386705521|[429.88](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-220).png)|366.470484025066|[1.6343](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-220).png)|0.7213983307127592|
+|ThresholdStrategy:230|[24.1117](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-230.png)|4.076749329859496|[10343.24](readme/images/final_score_per_game_for_strategy_thresholdstrategy-230.png)|381.6266058421879|[434.925](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-230).png)|370.64367261320524|[1.6281](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-230).png)|0.7178035345353345|
+|ThresholdStrategy:240|[24.1056](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-240.png)|4.052862100925828|[10346.085](readme/images/final_score_per_game_for_strategy_thresholdstrategy-240.png)|387.0812653249916|[426.42](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-240).png)|369.4639819568294|[1.6479](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-240).png)|0.7252435369024546|
+|ThresholdStrategy:250|[24.0296](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-250.png)|4.116967182511683|[10348.91](readme/images/final_score_per_game_for_strategy_thresholdstrategy-250.png)|385.0670585287144|[425.46](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-250).png)|357.6312044660544|[1.6231](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-250).png)|0.7175638506697356|
+|ThresholdStrategy:260|[24.241](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-260.png)|4.285038524391065|[10350.915](readme/images/final_score_per_game_for_strategy_thresholdstrategy-260.png)|378.92119352457735|[425.285](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-260).png)|380.5067638225784|[1.842](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-260).png)|0.8471763516394196|
+|ThresholdStrategy:270|[24.2006](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-270.png)|4.261076779117194|[10368.62](readme/images/final_score_per_game_for_strategy_thresholdstrategy-270.png)|412.94230557642487|[425.9](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-270).png)|373.12680466730893|[1.8395](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-270).png)|0.8491241671187545|
+|ThresholdStrategy:280|[24.1855](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-280.png)|4.292147714513134|[10357.105](readme/images/final_score_per_game_for_strategy_thresholdstrategy-280.png)|397.2701238831496|[420.565](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-280).png)|368.89556675150874|[1.8452](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-280).png)|0.8454043002274618|
+|ThresholdStrategy:290|[24.3012](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-290.png)|4.333884725702977|[10351.175](readme/images/final_score_per_game_for_strategy_thresholdstrategy-290.png)|385.31898012769193|[428.78](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-290).png)|380.2343611733974|[1.837](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-290).png)|0.8394649904236714|
+|ThresholdStrategy:300|[24.2969](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-300.png)|4.296905482981091|[10352.4](readme/images/final_score_per_game_for_strategy_thresholdstrategy-300.png)|376.2830037217852|[427.795](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-300).png)|371.5629070216609|[1.8404](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-300).png)|0.8548689490746574|
+|ThresholdStrategy:310|[25.3806](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-310.png)|4.803774689254952|[10372.87](readme/images/final_score_per_game_for_strategy_thresholdstrategy-310.png)|392.8102507436751|[407.985](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-310).png)|400.4273017382777|[2.0567](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-310).png)|0.9895367746086197|
+|ThresholdStrategy:320|[25.3908](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-320.png)|4.77878217079452|[10372.595](readme/images/final_score_per_game_for_strategy_thresholdstrategy-320.png)|402.68092972987534|[412.49](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-320).png)|401.02877990018476|[2.0428](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-320).png)|0.9955236143490885|
+|ThresholdStrategy:330|[25.3429](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-330.png)|4.773991902995751|[10375.465](readme/images/final_score_per_game_for_strategy_thresholdstrategy-330.png)|388.2375002632552|[405.975](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-330).png)|386.55205551666967|[2.0654](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-330).png)|0.985301944579528|
+|ThresholdStrategy:340|[25.3718](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-340.png)|4.819697885632551|[10367.265](readme/images/final_score_per_game_for_strategy_thresholdstrategy-340.png)|380.7245262542054|[406.74](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-340).png)|394.79255124160034|[2.0576](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-340).png)|0.9824351163694158|
+|ThresholdStrategy:350|[25.3435](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-350.png)|4.808910511959149|[10373.25](readme/images/final_score_per_game_for_strategy_thresholdstrategy-350.png)|387.3473135238315|[411.525](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-350).png)|405.1812453201109|[2.0519](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-350).png)|0.986257400664774|
+|ThresholdStrategy:360|[26.9097](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-360.png)|5.493392726390917|[10396.135](readme/images/final_score_per_game_for_strategy_thresholdstrategy-360.png)|412.93869231565253|[378.43](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-360).png)|406.4151232732888|[2.2345](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-360).png)|1.1181389777113344|
+|ThresholdStrategy:370|[27.0458](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-370.png)|5.526586349245577|[10395.37](readme/images/final_score_per_game_for_strategy_thresholdstrategy-370.png)|399.58106762328003|[380.375](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-370).png)|412.5871207250886|[2.2296](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-370).png)|1.1117587151644346|
+|ThresholdStrategy:380|[26.9355](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-380.png)|5.5208502722653945|[10401.225](readme/images/final_score_per_game_for_strategy_thresholdstrategy-380.png)|405.8961992276532|[382.265](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-380).png)|413.67660389277614|[2.2351](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-380).png)|1.1246130292000642|
+|ThresholdStrategy:390|[26.9792](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-390.png)|5.536861298904311|[10396.23](readme/images/final_score_per_game_for_strategy_thresholdstrategy-390.png)|390.5291774039942|[387.88](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-390).png)|424.33608344232425|[2.2436](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-390).png)|1.1241821109330348|
+|ThresholdStrategy:400|[26.9464](readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-400.png)|5.577171104041221|[10394.85](readme/images/final_score_per_game_for_strategy_thresholdstrategy-400.png)|407.8248516348178|[388.59](readme/images/histogram_of_scores_per_turn_(thresholdstrategy-400).png)|419.2742431739623|[2.2324](readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-400).png)|1.1317766262974258|
 
 The raw output for this is below:
 
@@ -71,49 +77,53 @@ The raw output for this is below:
             "numTurnsStats": {
                 "nobs": 1000,
                 "minmax": [
-                    89,
-                    969
+                    50,
+                    958
                 ],
-                "mean": 403.412,
-                "variance": 20868.953209209205,
-                "skewness": 0.5007081131661607,
-                "kurtosis": 0.18272386957238762
+                "mean": 409.229,
+                "variance": 21314.6412002002,
+                "skewness": 0.5383189587666654,
+                "kurtosis": 0.33118091606083766
             },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_crawdadstrategy.png",
             "finalScoresStats": {
                 "nobs": 1000,
                 "minmax": [
                     10000,
-                    18250
+                    17700
                 ],
-                "mean": 10702.35,
-                "variance": 418575.55305305304,
-                "skewness": 3.012929126743015,
-                "kurtosis": 21.80109009541371
-            }
+                "mean": 10718.75,
+                "variance": 458104.0415415415,
+                "skewness": 2.727036006207771,
+                "kurtosis": 15.663463408546821
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_crawdadstrategy.png"
         },
         "simulateTurns": {
             "scoresPerTurnStats": {
                 "nobs": 1000,
                 "minmax": [
                     0,
-                    3550
+                    2150
                 ],
-                "mean": 34.45,
-                "variance": 53724.42192192194,
-                "skewness": 8.343473186333812,
-                "kurtosis": 85.08228966995188
+                "mean": 22.05,
+                "variance": 31472.770270270277,
+                "skewness": 8.888656845175511,
+                "kurtosis": 85.12971759320546
             },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(crawdadstrategy).png",
             "rollsPerTurnStats": {
                 "nobs": 1000,
                 "minmax": [
                     1,
                     18
                 ],
-                "mean": 3.846,
-                "variance": 5.1614454454454455,
-                "skewness": 1.8583343070658498,
-                "kurtosis": 4.570199797393859
-            }
+                "mean": 3.875,
+                "variance": 5.703078078078078,
+                "skewness": 1.9966090733240813,
+                "kurtosis": 5.276383569356758
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(crawdadstrategy).png"
         }
     },
     "TylerStrategy": {
@@ -121,49 +131,53 @@ The raw output for this is below:
             "numTurnsStats": {
                 "nobs": 1000,
                 "minmax": [
-                    12,
-                    45
+                    13,
+                    51
                 ],
-                "mean": 28.681,
-                "variance": 28.333572572572574,
-                "skewness": 0.13474888345082872,
-                "kurtosis": -0.039946938390199804
+                "mean": 29.16,
+                "variance": 29.972372372372373,
+                "skewness": 0.17815358911499513,
+                "kurtosis": 0.0270595047111013
             },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_tylerstrategy.png",
             "finalScoresStats": {
                 "nobs": 1000,
                 "minmax": [
                     10000,
-                    13750
+                    13400
                 ],
-                "mean": 10345.7,
-                "variance": 155171.6816816817,
-                "skewness": 2.2814425870474473,
-                "kurtosis": 8.782565061155843
-            }
+                "mean": 10347.3,
+                "variance": 173506.2162162162,
+                "skewness": 2.72883551377366,
+                "kurtosis": 11.558474655120923
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_tylerstrategy.png"
         },
         "simulateTurns": {
             "scoresPerTurnStats": {
                 "nobs": 1000,
                 "minmax": [
                     0,
-                    4050
+                    2400
                 ],
-                "mean": 378.55,
-                "variance": 179607.00450450453,
-                "skewness": 3.375191481107269,
-                "kurtosis": 19.119971567842022
+                "mean": 348.35,
+                "variance": 121451.22872872873,
+                "skewness": 2.1161018581014384,
+                "kurtosis": 5.832881435009339
             },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(tylerstrategy).png",
             "rollsPerTurnStats": {
                 "nobs": 1000,
                 "minmax": [
                     1,
                     2
                 ],
-                "mean": 1.017,
-                "variance": 0.016727727727727727,
-                "skewness": 7.483902306019882,
-                "kurtosis": 54.117023986696275
-            }
+                "mean": 1.01,
+                "variance": 0.009909909909909911,
+                "skewness": 9.864173018495201,
+                "kurtosis": 95.49289150015176
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(tylerstrategy).png"
         }
     },
     "ThresholdStrategy:210": {
@@ -171,425 +185,27 @@ The raw output for this is below:
             "numTurnsStats": {
                 "nobs": 10000,
                 "minmax": [
-                    6,
-                    41
+                    9,
+                    39
                 ],
-                "mean": 24.0485,
-                "variance": 16.45639338933893,
-                "skewness": 0.04654665734949312,
-                "kurtosis": 0.09953938571396126
+                "mean": 24.0143,
+                "variance": 16.317527262726273,
+                "skewness": 0.05029144287971943,
+                "kurtosis": 0.017174434623926427
             },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-210.png",
             "finalScoresStats": {
                 "nobs": 10000,
                 "minmax": [
                     10000,
-                    16550
+                    17700
                 ],
-                "mean": 10341.33,
-                "variance": 146758.50695069507,
-                "skewness": 3.2090582400083214,
-                "kurtosis": 20.815514245249137
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    4050
-                ],
-                "mean": 427.75,
-                "variance": 138806.31813181317,
-                "skewness": 2.404192669240335,
-                "kurtosis": 11.785718671091054
+                "mean": 10348.295,
+                "variance": 152861.6291379138,
+                "skewness": 3.0839952663446164,
+                "kurtosis": 22.03993759728522
             },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    5
-                ],
-                "mean": 1.6327,
-                "variance": 0.5140421142114211,
-                "skewness": 0.883231495213508,
-                "kurtosis": 0.22249518179996297
-            }
-        }
-    },
-    "ThresholdStrategy:220": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    5,
-                    41
-                ],
-                "mean": 24.0835,
-                "variance": 16.4233700870087,
-                "skewness": 0.02512399693297164,
-                "kurtosis": 0.23214247732229865
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    14450
-                ],
-                "mean": 10340.435,
-                "variance": 134921.25290029004,
-                "skewness": 2.591332605508794,
-                "kurtosis": 11.902095560921044
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    4050
-                ],
-                "mean": 428.09,
-                "variance": 134290.88098809883,
-                "skewness": 2.4487125217265096,
-                "kurtosis": 12.119411240786835
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    5
-                ],
-                "mean": 1.638,
-                "variance": 0.5156075607560756,
-                "skewness": 0.8687108377549451,
-                "kurtosis": 0.19576454084126027
-            }
-        }
-    },
-    "ThresholdStrategy:230": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    2,
-                    41
-                ],
-                "mean": 24.0599,
-                "variance": 17.097621752175215,
-                "skewness": 0.03831486800345149,
-                "kurtosis": 0.17153033998783318
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    16800
-                ],
-                "mean": 10349.56,
-                "variance": 163508.65726572656,
-                "skewness": 3.5433780000663204,
-                "kurtosis": 24.821853099358815
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    4000
-                ],
-                "mean": 435.925,
-                "variance": 140422.68664366438,
-                "skewness": 2.317521164853588,
-                "kurtosis": 10.481601561213004
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    5
-                ],
-                "mean": 1.6173,
-                "variance": 0.500890799079908,
-                "skewness": 0.9124498073932252,
-                "kurtosis": 0.36043449211069456
-            }
-        }
-    },
-    "ThresholdStrategy:240": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    6,
-                    40
-                ],
-                "mean": 24.0208,
-                "variance": 16.65743310331033,
-                "skewness": 0.04268806774541244,
-                "kurtosis": 0.16700279995718148
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    13950
-                ],
-                "mean": 10352.495,
-                "variance": 152778.80285528552,
-                "skewness": 2.7612344836550484,
-                "kurtosis": 12.919219547935072
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    4000
-                ],
-                "mean": 431.705,
-                "variance": 135116.05458045803,
-                "skewness": 2.2291357724727545,
-                "kurtosis": 9.78288295406543
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    5
-                ],
-                "mean": 1.6215,
-                "variance": 0.511688918891889,
-                "skewness": 0.9294251309040645,
-                "kurtosis": 0.38494749343184687
-            }
-        }
-    },
-    "ThresholdStrategy:250": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    5,
-                    40
-                ],
-                "mean": 24.0435,
-                "variance": 16.86929467946795,
-                "skewness": 0.046427281093971894,
-                "kurtosis": 0.1486541235522041
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    17150
-                ],
-                "mean": 10348.36,
-                "variance": 153442.65466546654,
-                "skewness": 3.262600553251363,
-                "kurtosis": 22.99730568959016
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    8000
-                ],
-                "mean": 429.205,
-                "variance": 145493.36731173118,
-                "skewness": 3.8161383524796135,
-                "kurtosis": 43.14430458117469
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    5
-                ],
-                "mean": 1.6153,
-                "variance": 0.5011560256025603,
-                "skewness": 0.9365214915481627,
-                "kurtosis": 0.4788797362341688
-            }
-        }
-    },
-    "ThresholdStrategy:260": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    7,
-                    44
-                ],
-                "mean": 24.2867,
-                "variance": 17.92589569956996,
-                "skewness": 0.12738299242953324,
-                "kurtosis": 0.21302230569953062
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    16500
-                ],
-                "mean": 10362.9,
-                "variance": 161883.27832783278,
-                "skewness": 3.2827030719593346,
-                "kurtosis": 20.845246574672583
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    5000
-                ],
-                "mean": 431.345,
-                "variance": 149169.65794079413,
-                "skewness": 2.114551831824568,
-                "kurtosis": 10.163811589059177
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    5
-                ],
-                "mean": 1.8527,
-                "variance": 0.7242751375137513,
-                "skewness": 0.736315587174272,
-                "kurtosis": -0.07442037865641193
-            }
-        }
-    },
-    "ThresholdStrategy:270": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    5,
-                    42
-                ],
-                "mean": 24.3016,
-                "variance": 18.376875127512754,
-                "skewness": 0.14714820471777743,
-                "kurtosis": 0.21148203514827157
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    17250
-                ],
-                "mean": 10355.38,
-                "variance": 153424.39803980396,
-                "skewness": 3.435760712165243,
-                "kurtosis": 27.237074451943933
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    4050
-                ],
-                "mean": 430.37,
-                "variance": 145570.7201720172,
-                "skewness": 2.0787338145141385,
-                "kurtosis": 9.435716973650365
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    6
-                ],
-                "mean": 1.8487,
-                "variance": 0.7414824582458246,
-                "skewness": 0.7985167321565692,
-                "kurtosis": 0.11298998749495892
-            }
-        }
-    },
-    "ThresholdStrategy:280": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    6,
-                    45
-                ],
-                "mean": 24.274,
-                "variance": 18.424166416641665,
-                "skewness": 0.1448471994743714,
-                "kurtosis": 0.2629221472456784
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    15200
-                ],
-                "mean": 10356.71,
-                "variance": 148609.3368336834,
-                "skewness": 2.819216963681702,
-                "kurtosis": 14.573812059575353
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    4050
-                ],
-                "mean": 423.915,
-                "variance": 135960.91886688673,
-                "skewness": 1.756309725748372,
-                "kurtosis": 6.434054166668931
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    6
-                ],
-                "mean": 1.8436,
-                "variance": 0.7240114411441144,
-                "skewness": 0.8074744205839318,
-                "kurtosis": 0.19455512441409395
-            }
-        }
-    },
-    "ThresholdStrategy:290": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    6,
-                    42
-                ],
-                "mean": 24.2547,
-                "variance": 17.850612971297128,
-                "skewness": 0.07691751602919705,
-                "kurtosis": 0.16399460083720685
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    17650
-                ],
-                "mean": 10353.88,
-                "variance": 150935.53915391542,
-                "skewness": 3.2453883863695334,
-                "kurtosis": 24.011787607821315
-            }
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-210.png"
         },
         "simulateTurns": {
             "scoresPerTurnStats": {
@@ -598,22 +214,456 @@ The raw output for this is below:
                     0,
                     4100
                 ],
-                "mean": 431.935,
-                "variance": 148365.24229922993,
-                "skewness": 2.23623114486687,
-                "kurtosis": 11.562079097064775
+                "mean": 433.445,
+                "variance": 132065.3885138514,
+                "skewness": 2.165563286738794,
+                "kurtosis": 9.407158151760584
             },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-210).png",
             "rollsPerTurnStats": {
                 "nobs": 10000,
                 "minmax": [
                     1,
                     5
                 ],
-                "mean": 1.8326,
-                "variance": 0.7160488448844884,
-                "skewness": 0.7855806229168428,
-                "kurtosis": 0.06616828434200128
-            }
+                "mean": 1.6362,
+                "variance": 0.5177013301330132,
+                "skewness": 0.8789680050156637,
+                "kurtosis": 0.22252489609869786
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-210).png"
+        }
+    },
+    "ThresholdStrategy:220": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    8,
+                    39
+                ],
+                "mean": 24.065,
+                "variance": 17.02227722772277,
+                "skewness": 0.08213573862626021,
+                "kurtosis": 0.10421312970848673
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-220.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    17000
+                ],
+                "mean": 10355.615,
+                "variance": 158494.0711821182,
+                "skewness": 3.062096313445673,
+                "kurtosis": 19.168381980424158
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-220.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    4050
+                ],
+                "mean": 429.88,
+                "variance": 134300.61566156617,
+                "skewness": 2.315604716833924,
+                "kurtosis": 10.80074387283078
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-220).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    5
+                ],
+                "mean": 1.6343,
+                "variance": 0.5204155515551555,
+                "skewness": 0.9088336113543455,
+                "kurtosis": 0.32016895131443857
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-220).png"
+        }
+    },
+    "ThresholdStrategy:230": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    8,
+                    41
+                ],
+                "mean": 24.1117,
+                "variance": 16.619885098509847,
+                "skewness": 0.05509340626540323,
+                "kurtosis": 0.09616587740213056
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-230.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    17700
+                ],
+                "mean": 10343.24,
+                "variance": 145638.86628662868,
+                "skewness": 3.186153387992411,
+                "kurtosis": 24.53204055165881
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-230.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    5000
+                ],
+                "mean": 434.925,
+                "variance": 137376.73204820487,
+                "skewness": 2.355769470127566,
+                "kurtosis": 11.312682163041696
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-230).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    5
+                ],
+                "mean": 1.6281,
+                "variance": 0.5152419141914192,
+                "skewness": 0.9394256145303008,
+                "kurtosis": 0.5180305481188614
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-230).png"
+        }
+    },
+    "ThresholdStrategy:240": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    4,
+                    39
+                ],
+                "mean": 24.1056,
+                "variance": 16.425691209120913,
+                "skewness": 0.0641294337584813,
+                "kurtosis": 0.03594587925392867
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-240.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    17400
+                ],
+                "mean": 10346.085,
+                "variance": 149831.90596559655,
+                "skewness": 3.4389029029716434,
+                "kurtosis": 28.715650652048634
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-240.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    8000
+                ],
+                "mean": 426.42,
+                "variance": 136503.63396339637,
+                "skewness": 3.2255996870391863,
+                "kurtosis": 29.9583467562439
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-240).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    5
+                ],
+                "mean": 1.6479,
+                "variance": 0.5259781878187819,
+                "skewness": 0.8760678480085413,
+                "kurtosis": 0.2626887075250295
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-240).png"
+        }
+    },
+    "ThresholdStrategy:250": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    7,
+                    43
+                ],
+                "mean": 24.0296,
+                "variance": 16.949418781878187,
+                "skewness": 0.034903121129216376,
+                "kurtosis": 0.12976621220377726
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-250.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    14600
+                ],
+                "mean": 10348.91,
+                "variance": 148276.63956395639,
+                "skewness": 2.6903060158071828,
+                "kurtosis": 12.612532717885165
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-250.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    5000
+                ],
+                "mean": 425.46,
+                "variance": 127900.07840784079,
+                "skewness": 2.420751918613237,
+                "kurtosis": 13.419349583999782
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-250).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    5
+                ],
+                "mean": 1.6231,
+                "variance": 0.5148978797879786,
+                "skewness": 0.9231526028292566,
+                "kurtosis": 0.3522432005581755
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-250).png"
+        }
+    },
+    "ThresholdStrategy:260": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    7,
+                    42
+                ],
+                "mean": 24.241,
+                "variance": 18.361555155515553,
+                "skewness": 0.12764033982590647,
+                "kurtosis": 0.14228102213135907
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-260.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    16300
+                ],
+                "mean": 10350.915,
+                "variance": 143581.2709020902,
+                "skewness": 3.0484894148117223,
+                "kurtosis": 18.65307894542243
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-260.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    4100
+                ],
+                "mean": 425.285,
+                "variance": 144785.39731473147,
+                "skewness": 2.1844362451647705,
+                "kurtosis": 10.583501524251634
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-260).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    6
+                ],
+                "mean": 1.842,
+                "variance": 0.7177077707770776,
+                "skewness": 0.7562874567772394,
+                "kurtosis": 0.05036266727879557
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-260).png"
+        }
+    },
+    "ThresholdStrategy:270": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    9,
+                    43
+                ],
+                "mean": 24.2006,
+                "variance": 18.156775317531757,
+                "skewness": 0.10859343723402062,
+                "kurtosis": 0.10403073637748639
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-270.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    17150
+                ],
+                "mean": 10368.62,
+                "variance": 170521.34773477347,
+                "skewness": 3.603607469900953,
+                "kurtosis": 28.567545322840928
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-270.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    4050
+                ],
+                "mean": 425.9,
+                "variance": 139223.61236123613,
+                "skewness": 2.040553170375145,
+                "kurtosis": 9.694605273571936
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-270).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    5
+                ],
+                "mean": 1.8395,
+                "variance": 0.7210118511851185,
+                "skewness": 0.7675368028307199,
+                "kurtosis": 0.027809261813774633
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-270).png"
+        }
+    },
+    "ThresholdStrategy:280": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    6,
+                    43
+                ],
+                "mean": 24.1855,
+                "variance": 18.42253200320032,
+                "skewness": 0.11744690979659538,
+                "kurtosis": 0.17139728732573012
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-280.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    16900
+                ],
+                "mean": 10357.105,
+                "variance": 157823.55133013302,
+                "skewness": 3.373164811203993,
+                "kurtosis": 24.051396022522244
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-280.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    4100
+                ],
+                "mean": 420.565,
+                "variance": 136083.93916891684,
+                "skewness": 1.9278101335185545,
+                "kurtosis": 8.166328803425113
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-280).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    6
+                ],
+                "mean": 1.8452,
+                "variance": 0.7147084308430843,
+                "skewness": 0.7711239564436734,
+                "kurtosis": 0.11339040002318423
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-280).png"
+        }
+    },
+    "ThresholdStrategy:290": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    6,
+                    44
+                ],
+                "mean": 24.3012,
+                "variance": 18.78255681568157,
+                "skewness": 0.12504579172705704,
+                "kurtosis": 0.12677567272977797
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-290.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    17700
+                ],
+                "mean": 10351.175,
+                "variance": 148470.71644664466,
+                "skewness": 3.3138955455090264,
+                "kurtosis": 24.978080088998745
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-290.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    4050
+                ],
+                "mean": 428.78,
+                "variance": 144578.16941694164,
+                "skewness": 2.0406532969158153,
+                "kurtosis": 8.92526279410481
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-290).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    6
+                ],
+                "mean": 1.837,
+                "variance": 0.7047014701470148,
+                "skewness": 0.7414595813270815,
+                "kurtosis": -0.04504057490091551
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-290).png"
         }
     },
     "ThresholdStrategy:300": {
@@ -622,24 +672,26 @@ The raw output for this is below:
                 "nobs": 10000,
                 "minmax": [
                     5,
-                    48
+                    42
                 ],
-                "mean": 24.2946,
-                "variance": 18.259836823682367,
-                "skewness": 0.14177284045899752,
-                "kurtosis": 0.16348444241754834
+                "mean": 24.2969,
+                "variance": 18.463396729672965,
+                "skewness": 0.0970074806696016,
+                "kurtosis": 0.1172835135324779
             },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-300.png",
             "finalScoresStats": {
                 "nobs": 10000,
                 "minmax": [
                     10000,
-                    17300
+                    14350
                 ],
-                "mean": 10353.115,
-                "variance": 147709.81775677568,
-                "skewness": 3.2586041260210683,
-                "kurtosis": 23.67498458698417
-            }
+                "mean": 10352.4,
+                "variance": 141588.89888988898,
+                "skewness": 2.710317680597878,
+                "kurtosis": 12.905009998386832
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-300.png"
         },
         "simulateTurns": {
             "scoresPerTurnStats": {
@@ -648,22 +700,24 @@ The raw output for this is below:
                     0,
                     4050
                 ],
-                "mean": 425.16,
-                "variance": 148356.3100310031,
-                "skewness": 2.3455786516570307,
-                "kurtosis": 12.388391862079876
+                "mean": 427.795,
+                "variance": 138058.99387438744,
+                "skewness": 1.8341850109747058,
+                "kurtosis": 7.180642818948819
             },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-300).png",
             "rollsPerTurnStats": {
                 "nobs": 10000,
                 "minmax": [
                     1,
-                    6
+                    5
                 ],
-                "mean": 1.8525,
-                "variance": 0.741617911791179,
-                "skewness": 0.8001044997248038,
-                "kurtosis": 0.19812654220712034
-            }
+                "mean": 1.8404,
+                "variance": 0.7308009200920091,
+                "skewness": 0.8097615028288072,
+                "kurtosis": 0.15283174975502822
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-300).png"
         }
     },
     "ThresholdStrategy:310": {
@@ -671,75 +725,27 @@ The raw output for this is below:
             "numTurnsStats": {
                 "nobs": 10000,
                 "minmax": [
-                    7,
+                    6,
                     46
                 ],
-                "mean": 25.3414,
-                "variance": 23.302976337633762,
-                "skewness": 0.23193637466304864,
-                "kurtosis": 0.2025972506325866
+                "mean": 25.3806,
+                "variance": 23.076251265126512,
+                "skewness": 0.21140650454612606,
+                "kurtosis": 0.23194487890356497
             },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-310.png",
             "finalScoresStats": {
                 "nobs": 10000,
                 "minmax": [
                     10000,
-                    16650
+                    16000
                 ],
-                "mean": 10374.055,
-                "variance": 164787.08568356835,
-                "skewness": 3.377086751070034,
-                "kurtosis": 22.405625018997682
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    4050
-                ],
-                "mean": 407.01,
-                "variance": 149410.80098009796,
-                "skewness": 1.595722932960974,
-                "kurtosis": 5.85698275292466
+                "mean": 10372.87,
+                "variance": 154299.89308930893,
+                "skewness": 3.069375665806407,
+                "kurtosis": 19.828929014772655
             },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    6
-                ],
-                "mean": 2.0432,
-                "variance": 0.9494287028702869,
-                "skewness": 0.6622664179454053,
-                "kurtosis": -0.150573495423437
-            }
-        }
-    },
-    "ThresholdStrategy:320": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    5,
-                    48
-                ],
-                "mean": 25.3733,
-                "variance": 23.08485559555956,
-                "skewness": 0.2783227049223853,
-                "kurtosis": 0.40481294689264935
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    17350
-                ],
-                "mean": 10368.675,
-                "variance": 155627.05708070807,
-                "skewness": 3.6162696409432384,
-                "kurtosis": 31.033263006241555
-            }
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-310.png"
         },
         "simulateTurns": {
             "scoresPerTurnStats": {
@@ -748,22 +754,78 @@ The raw output for this is below:
                     0,
                     4800
                 ],
-                "mean": 405.21,
-                "variance": 156815.03740374034,
-                "skewness": 1.7716216691800626,
-                "kurtosis": 7.392055370410713
+                "mean": 407.985,
+                "variance": 160342.0239773977,
+                "skewness": 1.9254544858925242,
+                "kurtosis": 8.946756854412406
             },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-310).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    6
+                ],
+                "mean": 2.0567,
+                "variance": 0.9791830283028302,
+                "skewness": 0.6513986712432507,
+                "kurtosis": -0.2297701383334192
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-310).png"
+        }
+    },
+    "ThresholdStrategy:320": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    6,
+                    49
+                ],
+                "mean": 25.3908,
+                "variance": 22.83675903590359,
+                "skewness": 0.21178509896421888,
+                "kurtosis": 0.1824485551100321
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-320.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    17800
+                ],
+                "mean": 10372.595,
+                "variance": 162151.9311681168,
+                "skewness": 3.7751129578916016,
+                "kurtosis": 33.61296807140411
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-320.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    4050
+                ],
+                "mean": 412.49,
+                "variance": 160824.08230823083,
+                "skewness": 1.932369510513325,
+                "kurtosis": 9.312761022647726
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-320).png",
             "rollsPerTurnStats": {
                 "nobs": 10000,
                 "minmax": [
                     1,
                     7
                 ],
-                "mean": 2.0611,
-                "variance": 0.9922660166016603,
-                "skewness": 0.6438535029938856,
-                "kurtosis": -0.2545181744240912
-            }
+                "mean": 2.0428,
+                "variance": 0.9910672667266727,
+                "skewness": 0.7075500288844719,
+                "kurtosis": -0.08785997433563697
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-320).png"
         }
     },
     "ThresholdStrategy:330": {
@@ -771,325 +833,27 @@ The raw output for this is below:
             "numTurnsStats": {
                 "nobs": 10000,
                 "minmax": [
-                    8,
-                    45
+                    9,
+                    47
                 ],
-                "mean": 25.3179,
-                "variance": 22.74331392139214,
-                "skewness": 0.22536562709020175,
-                "kurtosis": 0.17415408579009117
+                "mean": 25.3429,
+                "variance": 22.790998689868985,
+                "skewness": 0.24478516240930484,
+                "kurtosis": 0.09390415943245012
             },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-330.png",
             "finalScoresStats": {
                 "nobs": 10000,
                 "minmax": [
                     10000,
-                    16950
+                    14900
                 ],
-                "mean": 10382.075,
-                "variance": 168963.34070907088,
-                "skewness": 3.6876562644959274,
-                "kurtosis": 29.36505095546036
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    4050
-                ],
-                "mean": 410.07,
-                "variance": 151801.27522752277,
-                "skewness": 1.6232615709435296,
-                "kurtosis": 5.865790064521896
+                "mean": 10375.465,
+                "variance": 150728.35661066105,
+                "skewness": 2.8250221010790773,
+                "kurtosis": 15.280439643578305
             },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    7
-                ],
-                "mean": 2.0634,
-                "variance": 0.970677507750775,
-                "skewness": 0.665591231702596,
-                "kurtosis": -0.12162217803086905
-            }
-        }
-    },
-    "ThresholdStrategy:340": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    4,
-                    46
-                ],
-                "mean": 25.5061,
-                "variance": 23.44810760076008,
-                "skewness": 0.20607095498152495,
-                "kurtosis": 0.2161284556012446
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    17550
-                ],
-                "mean": 10373.26,
-                "variance": 154852.45764576455,
-                "skewness": 3.3153792873746206,
-                "kurtosis": 25.450437874100942
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    4050
-                ],
-                "mean": 407.235,
-                "variance": 156574.56223122313,
-                "skewness": 1.8168380691826012,
-                "kurtosis": 7.8714394556102025
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    6
-                ],
-                "mean": 2.0578,
-                "variance": 0.9849576557655767,
-                "skewness": 0.659039768622151,
-                "kurtosis": -0.23199837326982475
-            }
-        }
-    },
-    "ThresholdStrategy:350": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    7,
-                    46
-                ],
-                "mean": 25.3569,
-                "variance": 23.429865376537652,
-                "skewness": 0.2570188750012829,
-                "kurtosis": 0.2282389212582654
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    17600
-                ],
-                "mean": 10370.435,
-                "variance": 160451.20589558955,
-                "skewness": 3.947563034177669,
-                "kurtosis": 37.161724026973204
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    8000
-                ],
-                "mean": 404.295,
-                "variance": 163387.14168916893,
-                "skewness": 2.53964056797265,
-                "kurtosis": 21.31248259821431
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    6
-                ],
-                "mean": 2.068,
-                "variance": 0.986074607460746,
-                "skewness": 0.6666180622087644,
-                "kurtosis": -0.1372201785680205
-            }
-        }
-    },
-    "ThresholdStrategy:360": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    7,
-                    51
-                ],
-                "mean": 26.9796,
-                "variance": 30.619645804580458,
-                "skewness": 0.3100613898473553,
-                "kurtosis": 0.12509343656313998
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    17650
-                ],
-                "mean": 10395.025,
-                "variance": 163069.80635563558,
-                "skewness": 3.2835672750171025,
-                "kurtosis": 24.644329662934815
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    4050
-                ],
-                "mean": 389.155,
-                "variance": 180324.1683918392,
-                "skewness": 1.6673877509986854,
-                "kurtosis": 6.006241676775778
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    7
-                ],
-                "mean": 2.2263,
-                "variance": 1.2446127712771275,
-                "skewness": 0.5674137953512096,
-                "kurtosis": -0.418095140957802
-            }
-        }
-    },
-    "ThresholdStrategy:370": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    6,
-                    52
-                ],
-                "mean": 27.0364,
-                "variance": 31.742649304930495,
-                "skewness": 0.3397976815691571,
-                "kurtosis": 0.2627119946462133
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    14250
-                ],
-                "mean": 10395.21,
-                "variance": 157396.29552955297,
-                "skewness": 2.670194661041882,
-                "kurtosis": 12.546986874494621
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    4050
-                ],
-                "mean": 387.155,
-                "variance": 174571.21309630957,
-                "skewness": 1.638189327610724,
-                "kurtosis": 5.760113025594784
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    6
-                ],
-                "mean": 2.229,
-                "variance": 1.278086808680868,
-                "skewness": 0.5796104418577619,
-                "kurtosis": -0.48734152632377636
-            }
-        }
-    },
-    "ThresholdStrategy:380": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    6,
-                    53
-                ],
-                "mean": 26.9295,
-                "variance": 31.226452395239523,
-                "skewness": 0.30790326470344903,
-                "kurtosis": 0.115622638708341
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    15000
-                ],
-                "mean": 10402.05,
-                "variance": 161181.41564156415,
-                "skewness": 2.531292938137352,
-                "kurtosis": 11.499102364036672
-            }
-        },
-        "simulateTurns": {
-            "scoresPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    0,
-                    8000
-                ],
-                "mean": 385.015,
-                "variance": 188548.554630463,
-                "skewness": 2.612116757085196,
-                "kurtosis": 24.289180494721702
-            },
-            "rollsPerTurnStats": {
-                "nobs": 10000,
-                "minmax": [
-                    1,
-                    6
-                ],
-                "mean": 2.2359,
-                "variance": 1.26817800780078,
-                "skewness": 0.5503726751346137,
-                "kurtosis": -0.5191437511923445
-            }
-        }
-    },
-    "ThresholdStrategy:390": {
-        "simulateGames": {
-            "numTurnsStats": {
-                "nobs": 10000,
-                "minmax": [
-                    6,
-                    53
-                ],
-                "mean": 26.9761,
-                "variance": 30.375166306630664,
-                "skewness": 0.3151558162488039,
-                "kurtosis": 0.2706030061022262
-            },
-            "finalScoresStats": {
-                "nobs": 10000,
-                "minmax": [
-                    10000,
-                    17100
-                ],
-                "mean": 10393.165,
-                "variance": 157261.2589008901,
-                "skewness": 3.1999961170424287,
-                "kurtosis": 24.257606029100476
-            }
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-330.png"
         },
         "simulateTurns": {
             "scoresPerTurnStats": {
@@ -1098,48 +862,52 @@ The raw output for this is below:
                     0,
                     4000
                 ],
-                "mean": 385.125,
-                "variance": 170083.99277427743,
-                "skewness": 1.4923974778468219,
-                "kurtosis": 4.436791636976571
+                "mean": 405.975,
+                "variance": 149422.49162416247,
+                "skewness": 1.5669531822541474,
+                "kurtosis": 5.731480505252009
             },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-330).png",
             "rollsPerTurnStats": {
                 "nobs": 10000,
                 "minmax": [
                     1,
-                    8
+                    6
                 ],
-                "mean": 2.237,
-                "variance": 1.2621572157215724,
-                "skewness": 0.5753455583294035,
-                "kurtosis": -0.3828455680503331
-            }
+                "mean": 2.0654,
+                "variance": 0.9708199219921992,
+                "skewness": 0.6055488516244188,
+                "kurtosis": -0.3692340470159108
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-330).png"
         }
     },
-    "ThresholdStrategy:400": {
+    "ThresholdStrategy:340": {
         "simulateGames": {
             "numTurnsStats": {
                 "nobs": 10000,
                 "minmax": [
-                    6,
-                    52
+                    9,
+                    45
                 ],
-                "mean": 26.9864,
-                "variance": 30.53346838683868,
-                "skewness": 0.2609630769907243,
-                "kurtosis": 0.11824143698019673
+                "mean": 25.3718,
+                "variance": 23.22948770877088,
+                "skewness": 0.2305302926595931,
+                "kurtosis": 0.10424033014612233
             },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-340.png",
             "finalScoresStats": {
                 "nobs": 10000,
                 "minmax": [
                     10000,
-                    16650
+                    13950
                 ],
-                "mean": 10392.03,
-                "variance": 156916.1707170717,
-                "skewness": 2.9329875295438725,
-                "kurtosis": 17.648557455686895
-            }
+                "mean": 10367.265,
+                "variance": 144951.16489148914,
+                "skewness": 2.6659976366075395,
+                "kurtosis": 12.637171696620168
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-340.png"
         },
         "simulateTurns": {
             "scoresPerTurnStats": {
@@ -1148,25 +916,351 @@ The raw output for this is below:
                     0,
                     4050
                 ],
-                "mean": 380.98,
-                "variance": 170266.26622662268,
-                "skewness": 1.769600516006514,
-                "kurtosis": 7.479998191695913
+                "mean": 406.74,
+                "variance": 155861.15851585162,
+                "skewness": 1.80323929075067,
+                "kurtosis": 7.621237114435965
             },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-340).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    6
+                ],
+                "mean": 2.0576,
+                "variance": 0.9651787578757877,
+                "skewness": 0.6334177444433929,
+                "kurtosis": -0.25948242339052197
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-340).png"
+        }
+    },
+    "ThresholdStrategy:350": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    6,
+                    49
+                ],
+                "mean": 25.3435,
+                "variance": 23.125620312031202,
+                "skewness": 0.222958847145518,
+                "kurtosis": 0.33213290205998725
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-350.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    14300
+                ],
+                "mean": 10373.25,
+                "variance": 150037.9412941294,
+                "skewness": 2.716714660668586,
+                "kurtosis": 12.974192519992851
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-350.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    8000
+                ],
+                "mean": 411.525,
+                "variance": 164171.8415591559,
+                "skewness": 2.4479659347428626,
+                "kurtosis": 20.261297957040252
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-350).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    6
+                ],
+                "mean": 2.0519,
+                "variance": 0.9727036603660365,
+                "skewness": 0.6680845152002525,
+                "kurtosis": -0.19753014186486517
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-350).png"
+        }
+    },
+    "ThresholdStrategy:360": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    6,
+                    50
+                ],
+                "mean": 26.9097,
+                "variance": 30.17736364636464,
+                "skewness": 0.2875901017994657,
+                "kurtosis": 0.2141851645261399
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-360.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    17950
+                ],
+                "mean": 10396.135,
+                "variance": 170518.36361136113,
+                "skewness": 3.4681437264710273,
+                "kurtosis": 27.783274833647194
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-360.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    4000
+                ],
+                "mean": 378.43,
+                "variance": 165173.25242524254,
+                "skewness": 1.4196986102034663,
+                "kurtosis": 4.11670887086591
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-360).png",
             "rollsPerTurnStats": {
                 "nobs": 10000,
                 "minmax": [
                     1,
                     7
                 ],
-                "mean": 2.2372,
-                "variance": 1.2552616861686168,
-                "skewness": 0.5737736281466055,
-                "kurtosis": -0.41943259020471757
-            }
+                "mean": 2.2345,
+                "variance": 1.2502347734773478,
+                "skewness": 0.5575264164452074,
+                "kurtosis": -0.5015500495885354
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-360).png"
+        }
+    },
+    "ThresholdStrategy:370": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    8,
+                    50
+                ],
+                "mean": 27.0458,
+                "variance": 30.54315667566756,
+                "skewness": 0.2883949780105509,
+                "kurtosis": 0.15673290728797173
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-370.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    15750
+                ],
+                "mean": 10395.37,
+                "variance": 159665.02960296028,
+                "skewness": 2.8063471018135373,
+                "kurtosis": 15.559807789888623
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-370.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    4800
+                ],
+                "mean": 380.375,
+                "variance": 170228.13218821882,
+                "skewness": 1.8238850935862132,
+                "kurtosis": 8.686666274885992
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-370).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    6
+                ],
+                "mean": 2.2296,
+                "variance": 1.2360074407440744,
+                "skewness": 0.574654174303613,
+                "kurtosis": -0.4214459609254333
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-370).png"
+        }
+    },
+    "ThresholdStrategy:380": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    5,
+                    53
+                ],
+                "mean": 26.9355,
+                "variance": 30.47978772877288,
+                "skewness": 0.27000697765500553,
+                "kurtosis": 0.23278626604467423
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-380.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    17600
+                ],
+                "mean": 10401.225,
+                "variance": 164751.72454745474,
+                "skewness": 3.0162406127160275,
+                "kurtosis": 20.68938386376144
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-380.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    4050
+                ],
+                "mean": 382.265,
+                "variance": 171128.33260826083,
+                "skewness": 1.6450460104192477,
+                "kurtosis": 6.431706597483618
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-380).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    6
+                ],
+                "mean": 2.2351,
+                "variance": 1.2647544654465444,
+                "skewness": 0.5838275228520273,
+                "kurtosis": -0.4069631488058114
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-380).png"
+        }
+    },
+    "ThresholdStrategy:390": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    5,
+                    53
+                ],
+                "mean": 26.9792,
+                "variance": 30.656833043304335,
+                "skewness": 0.31957956646195684,
+                "kurtosis": 0.37100850697271737
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-390.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    14400
+                ],
+                "mean": 10396.23,
+                "variance": 152513.0384038404,
+                "skewness": 2.662818549681746,
+                "kurtosis": 13.260009081091908
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-390.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    4800
+                ],
+                "mean": 387.88,
+                "variance": 180061.11171117116,
+                "skewness": 1.7108981195954285,
+                "kurtosis": 6.730357137943276
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-390).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    6
+                ],
+                "mean": 2.2436,
+                "variance": 1.2637854185418542,
+                "skewness": 0.5452814096531514,
+                "kurtosis": -0.5063937407305485
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-390).png"
+        }
+    },
+    "ThresholdStrategy:400": {
+        "simulateGames": {
+            "numTurnsStats": {
+                "nobs": 10000,
+                "minmax": [
+                    9,
+                    54
+                ],
+                "mean": 26.9464,
+                "variance": 31.104837523752373,
+                "skewness": 0.3131285788360232,
+                "kurtosis": 0.18505906972898378
+            },
+            "numTurnsStatsHistogram": "readme/images/number_of_turns_to_win_per_game_for_strategy_thresholdstrategy-400.png",
+            "finalScoresStats": {
+                "nobs": 10000,
+                "minmax": [
+                    10000,
+                    16600
+                ],
+                "mean": 10394.85,
+                "variance": 166321.1096109611,
+                "skewness": 3.2963637527380594,
+                "kurtosis": 22.309069794444472
+            },
+            "finalScoresStatsHistogram": "readme/images/final_score_per_game_for_strategy_thresholdstrategy-400.png"
+        },
+        "simulateTurns": {
+            "scoresPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    0,
+                    4050
+                ],
+                "mean": 388.59,
+                "variance": 175790.89098909887,
+                "skewness": 1.6817179753134253,
+                "kurtosis": 6.446243338366882
+            },
+            "scoresPerTurnStatsHistogram": "readme/images/histogram_of_scores_per_turn_(thresholdstrategy-400).png",
+            "rollsPerTurnStats": {
+                "nobs": 10000,
+                "minmax": [
+                    1,
+                    7
+                ],
+                "mean": 2.2324,
+                "variance": 1.2809183318331832,
+                "skewness": 0.5726167549927422,
+                "kurtosis": -0.47140200528047105
+            },
+            "rollsPerTurnStatsHistogram": "readme/images/histogram_of_num_rolls_per_turn_(thresholdstrategy-400).png"
         }
     }
-  }
+}
  ```
 </details>
 
