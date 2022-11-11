@@ -18,7 +18,6 @@ def wireServices():
 
     configService = ConfigService(serviceRegistry, "conf/config.yml")
     serviceRegistry.registerService(ConfigService.__class__, configService)
-    configService.getConfigValue("logging.level")
 
     return serviceRegistry
 
