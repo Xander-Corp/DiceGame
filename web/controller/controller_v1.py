@@ -9,7 +9,7 @@ ROOT_PATH = "/dicegame/api/v{}".format(version)
 
 @controller_v1.route('{}/'.format(ROOT_PATH))
 def hello_world():
-    return 'Hello, World!'
+    return 'Welcome to the dice game web server!'
 
 @controller_v1.route("{}/simulation/strategies".format(ROOT_PATH))
 def list_simulation_strategies():
