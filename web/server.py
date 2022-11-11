@@ -4,6 +4,7 @@ import os
 from util.util import Registry
 from web.service.simulation.simulationservice import SimulationService
 from web.service.config.configservice import ConfigService
+import logging
 
 app = None
 
@@ -12,14 +13,32 @@ def wireServices():
     Wire Services
 
     """
+    logging.info("Starting up services")
     serviceRegistry = Registry()
     simulationService = SimulationService(serviceRegistry)
-    serviceRegistry.registerService(SimulationService.__class__, simulationService)
-
     configService = ConfigService(serviceRegistry, "conf/config.yml")
-    serviceRegistry.registerService(ConfigService.__class__, configService)
+
+    # Override default logging
+    configureLogger(configService)
+
 
     return serviceRegistry
+
+def configureLogger(configService):
+    """
+    Configure Logger
+    """
+    format = '%(asctime)s - %(levelname)s - %(message)s'
+    loggingLevelConfig = configService.getConfigValue("logging.level")
+    logging.info("Configuring logger with logging level '{}'".format(loggingLevelConfig))
+
+    try:
+        logging.basicConfig(format=format, level=loggingLevelConfig.upper())
+    except:
+        message = "Encountered error when attempting to override logger configuration"
+        logging.basicConfig(format=format, level=logging.INFO)
+        logging.error(message)
+
 
 def getFlaskApp(serviceRegistry):
     """
@@ -37,6 +56,9 @@ def registerBlueprints(app):
 
     """
     # Register version 1 of the api
+    logging.info("Registering flask blueprints")
+
+    logging.info("Registering controller controller_v1")
     from web.controller.controller_v1 import controller_v1
     app.register_blueprint(controller_v1)
     return app
@@ -46,6 +68,8 @@ def start_server():
     Start Server
 
     """
+    format = '%(asctime)s - %(levelname)s - %(message)s'
+    logging.basicConfig(format=format, level=logging.DEBUG)
     serviceRegistry = wireServices()
     app = getFlaskApp(serviceRegistry)
     app = registerBlueprints(app)
