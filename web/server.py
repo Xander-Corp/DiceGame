@@ -3,6 +3,7 @@ import os
 
 from util.util import Registry
 from web.service.simulation.simulationservice import SimulationService
+from web.service.config.configservice import ConfigService
 
 app = None
 
@@ -14,6 +15,10 @@ def wireServices():
     serviceRegistry = Registry()
     simulationService = SimulationService(serviceRegistry)
     serviceRegistry.registerService(SimulationService.__class__, simulationService)
+
+    configService = ConfigService(serviceRegistry, "conf/config.yml")
+    serviceRegistry.registerService(ConfigService.__class__, configService)
+    configService.getConfigValue("logging.level")
 
     return serviceRegistry
 
