@@ -37,6 +37,7 @@ class Strategy():
     """
     def __init__(self):
         self.name = "Strategy"
+        self.description = "An abstract class representing a set of decisions how to play the dice game."
 
     def shouldReroll(self, rollScoreDoc, cumulativeTurnScore, cumulativeGameScore, otherPlayerScores):
         """
@@ -56,6 +57,7 @@ class CrawdadStrategy(Strategy):
     def __init__(self):
         Strategy.__init__(self)
         self.name = "CrawdadStrategy"
+        self.description = "An extremely risk-loving strategy that will always reroll when possible."
 
     def shouldReroll(self, rollScoreDoc, cumulativeTurnScore, cumulativeGameScore, otherPlayerScores):
         """
@@ -78,6 +80,7 @@ class TylerStrategy(Strategy):
     def __init__(self):
         Strategy.__init__(self)
         self.name = "TylerStrategy"
+        self.description = "An extremely risk-averse strategy that will only reroll when the previous rolls' scores are guaranteed."
 
     def shouldReroll(self, rollScoreDoc, cumulativeTurnScore, cumulativeGameScore, otherPlayerScores):
         """
@@ -99,6 +102,7 @@ class ThresholdStrategy(Strategy):
     def __init__(self, minScoreThreshold):
         Strategy.__init__(self)
         self.name = "ThresholdStrategy"
+        self.description = "A strategy that will continue to roll until a minimum score is reached."
         self.minScoreThreshold = minScoreThreshold
 
     def shouldReroll(self, rollScoreDoc, cumulativeTurnScore, cumulativeGameScore, otherPlayerScores):
@@ -114,9 +118,14 @@ class ThresholdStrategy(Strategy):
         return rollScoreDoc["automaticReroll"] or cumulativeTurnScore < self.minScoreThreshold
 
 class ExpectedValueStrategy(Strategy):
+    """
+    Expected Value Strategy
+    """
     def __init__(self, expectedValueThreshold):
         Strategy.__init__(self)
         self.name = "ExpectedValueStrategy"
+        self.description = "A strategy that rerolls when the previous rolls' scores are guaranteed or when the expected " \
+                           "value of the roll of the remaining dice is above a specified threshold"
         self.expectedValueThreshold = expectedValueThreshold
 
     def shouldReroll(self, rollScoreDoc, cumulativeTurnScore, cumulativeGameScore, otherPlayerScores):

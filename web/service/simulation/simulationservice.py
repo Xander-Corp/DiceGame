@@ -24,3 +24,10 @@ class SimulationService(Service):
         """
         return self.strategyFactory.getStrategyNames()
 
+    def getStrategyDecription(self, stratgeyName):
+        """
+        Get Strategy Description
+        """
+        strategy = self.strategyFactory.getStrategy(stratgeyName, None)
+        return strategy.description
+
