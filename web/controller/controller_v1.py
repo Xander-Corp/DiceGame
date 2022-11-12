@@ -4,18 +4,19 @@ import traceback
 from flask import Flask, request, Blueprint, current_app
 from web.service.simulation.simulationservice import SimulationService
 import logging
+from bson import json_util
 
 controller_v1 = Blueprint('simple_page', __name__, template_folder='templates')
 version = 1
 ROOT_PATH = "/dicegame/api/v{}".format(version)
 
 @controller_v1.route('{}/'.format(ROOT_PATH))
-def hello_world():
+def helloWorld():
     logging.info("Received request at index")
     return 'Welcome to the dice game web server!'
 
 @controller_v1.route("{}/simulation/strategies".format(ROOT_PATH))
-def list_simulation_strategies():
+def listSimulationStrategies():
     logging.info("Received request at {}/simulation/strategies".format(ROOT_PATH))
 
     try:
@@ -33,7 +34,7 @@ def list_simulation_strategies():
         return error, 500
 
 @controller_v1.route("{}/simulation/strategies/<strategyName>/description".format(ROOT_PATH), methods=['GET'])
-def describe_simulation_strategies(strategyName=None):
+def describeSimulationStrategies(strategyName=None):
     logging.info("Received request at {}/simulation/strategies/<strategyName>/description".format(ROOT_PATH))
     response = {
         "strategyName" : "None",
@@ -67,6 +68,53 @@ def describe_simulation_strategies(strategyName=None):
         logging.error(error)
         logging.error(traceback.format_exc())
         return error, 500
+
+
+@controller_v1.route("{}/simulation/startSimulation".format(ROOT_PATH), methods=['GET'])
+def startSimulation(strategyName=None):
+    """
+    Start Simulation
+    """
+    try:
+        mockPayload = {
+            "strategy" : "TylerStrategy",
+        }
+        simulationService = getService(SimulationService)
+        jobId = simulationService.startSimulation(strategyName=mockPayload["strategy"], params=None)
+        resp = {
+            "ok" : 1,
+            "jobId" : str(jobId)
+        }
+        return resp, 200
+    except Exception as e:
+        logging.exception("Got error {}".format(e))
+        response = {
+            "error": e
+        }
+        return response, 500
+
+@controller_v1.route("{}/simulation/<job_id>/status".format(ROOT_PATH), methods=['GET'])
+def getSimulationStatus(job_id):
+    """
+    Get Job Status
+
+    """
+    try:
+        simulationService = getService(SimulationService)
+        jobDoc = simulationService.fetchSimulation(job_id)
+        response = {
+            "ok" : 1,
+            "jobId" : job_id,
+            "jobData" : jobDoc
+        }
+        return response, 200
+    except Exception as e:
+        logging.exception("Got error {}".format(e))
+        response = {
+            "error" : e
+        }
+        return response, 500
+
 
 def getService(clazz):
     """

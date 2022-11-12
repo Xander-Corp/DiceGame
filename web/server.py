@@ -4,6 +4,7 @@ import os
 from util.util import Registry
 from web.service.simulation.simulationservice import SimulationService
 from web.service.config.configservice import ConfigService
+from web.service.jobs.jobsservice import JobsService
 import logging
 
 app = None
@@ -15,13 +16,16 @@ def wireServices():
     """
     logging.info("Starting up services")
     serviceRegistry = Registry()
-    simulationService = SimulationService(serviceRegistry)
+
+    # Config service must be registered first
     configService = ConfigService(serviceRegistry, "conf/config.yml")
+
+    # Other services can be registered subsequently
+    jobsService = JobsService(serviceRegistry)
+    simulationService = SimulationService(serviceRegistry)
 
     # Override default logging
     configureLogger(configService)
-
-
     return serviceRegistry
 
 def configureLogger(configService):
