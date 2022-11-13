@@ -21,7 +21,7 @@ def listSimulationStrategies():
 
     try:
         logging.info("Fetching simulation service...")
-        simulationService = getService(SimulationService.__class__)
+        simulationService = getService(SimulationService)
         response = {
             "strategies" : simulationService.listStrategies()
         }
