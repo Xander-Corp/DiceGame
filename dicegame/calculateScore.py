@@ -2,7 +2,7 @@ import argparse
 import logging
 import os
 import random
-from strategies.Strategy import StrategyFactory
+from dicegame.strategies.Strategy import StrategyFactory
 from dicegame.scoring.scoringCalculator import TraditionalScoringEngine
 import numpy as np
 from scipy import stats
@@ -327,6 +327,12 @@ def runScript():
     """
     args = setupArgs()
     main(args)
+
+def runSimulation(args):
+    """
+    Run Simulation
+    """
+    return main(args)
 
 def main(args):
     _configureLogger(args.logLevel.upper())

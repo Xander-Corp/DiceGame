@@ -1,7 +1,7 @@
 import json
 import traceback
 
-from flask import Flask, request, Blueprint, current_app
+from flask import Flask, request, Blueprint, current_app, request
 from web.service.simulation.simulationservice import SimulationService
 import logging
 from bson import json_util
@@ -70,17 +70,24 @@ def describeSimulationStrategies(strategyName=None):
         return error, 500
 
 
-@controller_v1.route("{}/simulation/startSimulation".format(ROOT_PATH), methods=['GET'])
-def startSimulation(strategyName=None):
+@controller_v1.route("{}/simulation/startSimulation".format(ROOT_PATH), methods=['POST'])
+def startSimulation():
     """
     Start Simulation
     """
     try:
-        mockPayload = {
-            "strategy" : "TylerStrategy",
-        }
+        payload = request.json
+        logging.debug("Received startSimulation request with payload {}".format(json.dumps(payload, indent=4)))
+        if "strategyName" not in payload:
+            resp = {
+                "status" : "Error",
+                "message"  : "Field 'strategyName' is missing from payload"
+            }
+            return resp, 400
+
         simulationService = getService(SimulationService)
-        jobId = simulationService.startSimulation(strategyName=mockPayload["strategy"], params=None)
+        params = payload["params"] if "params" in payload else None
+        jobId = simulationService.startSimulation(strategyName=payload["strategyName"], params=params)
         resp = {
             "ok" : 1,
             "jobId" : str(jobId)
@@ -89,7 +96,8 @@ def startSimulation(strategyName=None):
     except Exception as e:
         logging.exception("Got error {}".format(e))
         response = {
-            "error": e
+            "status" : "Error",
+            "message": e
         }
         return response, 500
 

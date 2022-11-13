@@ -48,7 +48,7 @@ class JobsService(Service):
         Creates a job and assigns a unique id
         """
         jobDoc = {
-            "status" : "new",
+            "state" : "new",
             "name" : jobName,
             "params" : params,
             "lastUpdate" : datetime.now()
