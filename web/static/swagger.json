@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "API for simulating the Wisconsin Dice game and analyzig results",
+    "description": "API for simulating the Wisconsin Dice game and analyzing results",
     "version": "1.0.0",
     "title": "Wisconsin Dice Game API",
     "contact": {
@@ -14,22 +14,35 @@
   },
   "servers": [
     {
-      "url": "/"
+      "url": "/dicegame/api/v1"
     }
   ],
   "tags": [
     {
-      "name": "Book Request",
-      "description": "Example API for requesting and return book requests"
+      "name": "List Strategy Names",
+      "description": "API for listing strategies"
+    },
+    {
+      "name": "Describe Strategy",
+      "description": "API for describing strategies"
+    },
+    {
+      "name" : "Start Simulation",
+      "description": "API for starting a simulation"
+    },
+    {
+      "name" : "Get Simulation Status",
+      "description": "Get Simulation status"
     }
+
   ],
   "paths": {
-    "/request": {
+    "/simulation/strategies": {
       "get": {
         "tags": [
-          "Book Request"
+          "List Strategy Names"
         ],
-        "summary": "Returns bookRequests",
+        "summary": "List Strategies",
         "responses": {
           "200": {
             "description": "OK",
@@ -38,12 +51,14 @@
             }
           }
         }
-      },
-      "post": {
+      }
+    },
+    "/simulation/strategies/{strategyName}/description" : {
+      "get": {
         "tags": [
-          "Book Request"
+          "Describe Strategy"
         ],
-        "summary": "Create a new book request system",
+        "summary": "Describe strategy",
         "requestBody": {
           "description": "Book Request Post Object",
           "required": true,
@@ -71,7 +86,7 @@
         }
       }
     },
-    "/request/{id}": {
+    "/simulation/startSimulation": {
       "parameters": [
         {
           "name": "id",
@@ -81,41 +96,10 @@
           "type": "string"
         }
       ],
-      "get": {
+      "post": {
+        "summary": "Start a dice game simulation",
         "tags": [
-          "Book Request"
-        ],
-        "summary": "Get book request with given ID",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "Book Request id",
-            "schema": {
-              "$ref": "#/components/schemas/id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/components/schemas/bookRequest"
-            }
-          },
-          "400": {
-            "description": "Failed. Misunderstood Request."
-          },
-          "404": {
-            "description": "Failed. Book request not found."
-          }
-        }
-      },
-      "put": {
-        "summary": "edit a book request by ID",
-        "tags": [
-          "Book Request"
+          "Start Simulation"
         ],
         "parameters": [
           {
@@ -153,35 +137,37 @@
             "description": "Failed. Bad post data."
           }
         }
-      },
-      "delete": {
-        "summary": "Delete Book Request by ID",
+      }
+    },
+    "/simulation/{job_id}/status" : {
+      "get": {
         "tags": [
-          "Book Request"
+          "Get Simulation Status"
         ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "Book Request Id",
-            "schema": {
-              "$ref": "#/components/schemas/id"
+        "summary": "Get simulation status",
+        "requestBody": {
+          "description": "Book Request Post Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/bookRequestPostBody"
+              }
             }
           }
+        },
+        "produces": [
+          "application/json"
         ],
         "responses": {
-          "204": {
+          "201": {
             "description": "OK",
             "schema": {
               "$ref": "#/components/schemas/id"
             }
           },
           "400": {
-            "description": "Failed. Misunderstood Request."
-          },
-          "404": {
-            "description": "Failed. Book Request not found."
+            "description": "Failed. Bad post data."
           }
         }
       }
