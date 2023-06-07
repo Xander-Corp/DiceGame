@@ -47,78 +47,50 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/bookRequests"
+              "$ref": "#/components/schemas/strategyListingsResponseBody"
             }
           }
         }
       }
     },
     "/simulation/strategies/{strategyName}/description" : {
+      "parameters": [
+        {
+          "name": "strategyName",
+          "in": "path",
+          "required": true,
+          "description": "Name of the strategy",
+          "type": "string"
+        }
+      ],
       "get": {
         "tags": [
           "Describe Strategy"
         ],
-        "summary": "Describe strategy",
-        "requestBody": {
-          "description": "Book Request Post Object",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/bookRequestPostBody"
-              }
-            }
-          }
-        },
-        "produces": [
-          "application/json"
-        ],
+        "summary": "Describe a dice game strategy",
         "responses": {
-          "201": {
+          "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/id"
+              "$ref": "#/components/schemas/strategyDescriptionResponseBody"
             }
-          },
-          "400": {
-            "description": "Failed. Bad post data."
           }
         }
       }
     },
     "/simulation/startSimulation": {
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "ID of the cat that we want to match",
-          "type": "string"
-        }
-      ],
       "post": {
         "summary": "Start a dice game simulation",
         "tags": [
           "Start Simulation"
         ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "description": "Book Request id",
-            "schema": {
-              "$ref": "#/components/schemas/id"
-            }
-          }
-        ],
         "requestBody": {
-          "description": "Book Request Object",
+          "description": "Start simulation request object",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/bookRequest"
+                "$ref": "#/components/schemas/startSimulationRequestBody"
               }
             }
           }
@@ -130,7 +102,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/bookRequest"
+              "$ref": "#/components/schemas/startSimulationResponseBody"
             }
           },
           "400": {
@@ -140,22 +112,19 @@
       }
     },
     "/simulation/{job_id}/status" : {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "job_id",
+          "required": true,
+          "description": "The id of the simulation job"
+        }
+      ],
       "get": {
         "tags": [
           "Get Simulation Status"
         ],
         "summary": "Get simulation status",
-        "requestBody": {
-          "description": "Book Request Post Object",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/bookRequestPostBody"
-              }
-            }
-          }
-        },
         "produces": [
           "application/json"
         ],
@@ -163,7 +132,7 @@
           "201": {
             "description": "OK",
             "schema": {
-              "$ref": "#/components/schemas/id"
+              "$ref": "#/components/schemas/simulationStatusResponseBody"
             }
           },
           "400": {
@@ -175,50 +144,85 @@
   },
   "components": {
     "schemas": {
-      "id": {
-        "properties": {
-          "uuid": {
-            "type": "string"
+      "strategyListingsResponseBody" : {
+        "type" : "object",
+        "properties" : {
+          "strategies" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
           }
         }
       },
-      "bookRequestPostBody": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "format": "string"
+      "strategyDescriptionResponseBody" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
           },
-          "email": {
-            "type": "string",
-            "format": "email"
+          "msg" : {
+            "type" : "string"
+          },
+          "strategyName" : {
+            "type" : "string"
           }
         }
       },
-      "bookRequest": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "format": "string"
+      "startSimulationRequestBody" : {
+        "type" : "object",
+        "properties" : {
+          "threshold" : {
+            "type" : "integer"
           },
-          "email": {
-            "type": "string",
-            "format": "email"
-          },
-          "timestamp": {
-            "type": "string",
-            "format": "number"
+          "numSimulations" : {
+            "type" : "integer"
           }
         }
       },
-      "bookRequests": {
-        "type": "object",
-        "properties": {
-          "bookRequest": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/bookRequest"
+      "startSimulationResponseBody" : {
+        "type" : "object",
+        "properties" : {
+          "ok" : {
+            "type" : "integer"
+          },
+          "jobId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "simulationStatusResponseBody" : {
+        "type" : "object",
+        "properties" : {
+          "ok" : {
+            "type" : "integer"
+          },
+          "jobId" : {
+            "type" : "string"
+          },
+          "jobData" : {
+            "type" : "object",
+            "properties" : {
+              "state" : {
+                "type" : "string"
+              },
+              "lastUpdate" : {
+                "type" : "datetTime"
+              },
+              "logs" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "date" : {
+                      "type" : "datetIme"
+                    },
+                    "log" : {
+                      "type" : "string"
+                    }
+                  }
+                }
+              }
             }
           }
         }
