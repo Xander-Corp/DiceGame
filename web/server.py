@@ -5,6 +5,7 @@ from util.util import Registry
 from web.service.simulation.simulationservice import SimulationService
 from web.service.config.configservice import ConfigService
 from web.service.jobs.jobsservice import JobsService
+from flask_swagger_ui import get_swaggerui_blueprint
 import logging
 
 app = None
@@ -67,6 +68,24 @@ def registerBlueprints(app):
     app.register_blueprint(controller_v1)
     return app
 
+def setup_swagger(app):
+    """
+    Setup Swagger
+
+    """
+    SWAGGER_URL = '/swagger'
+    API_URL = '/static/swagger.json'
+    swaggerui_blueprint = get_swaggerui_blueprint(
+        SWAGGER_URL,
+        API_URL,
+        config={
+            'app_name': "Sample API"
+        }
+    )
+    app.register_blueprint(swaggerui_blueprint)
+    return app
+
+
 def start_server():
     """
     Start Server
@@ -77,6 +96,7 @@ def start_server():
     serviceRegistry = wireServices()
     app = getFlaskApp(serviceRegistry)
     app = registerBlueprints(app)
+    app = setup_swagger(app)
     app.run()
 
 if __name__ == '__main__':
